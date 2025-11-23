@@ -1,0 +1,5 @@
+{
+  "name": "2 SmartHire ATS Portal",
+  "description": "A dual-role career portal for HR and Candidates featuring AI-powered resume scoring and automated ATS filtering using Google Gemini.",
+  "requestFramePermissions": []
+}
