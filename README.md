@@ -78,11 +78,6 @@ This ATS system streamlines the hiring process by automatically analyzing candid
     
 *   **Auto-screening logic:**
     
-
-javascript
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML  `if (score > 75) {      status = "Shortlisted"    } else {      status = "Auto-Rejected"    }`
-
 *   Application data saved to localStorage
     
 *   **Note:** PDF files are NOT saved to storage to prevent 5MB limit issues
@@ -117,27 +112,21 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 javascript
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  `
-
 **Step 2: Reading Binary Data**
 
 javascript
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   const reader = new FileReader();  reader.readAsDataURL(file);   `
+`   const reader = new FileReader();  reader.readAsDataURL(file);   `
 
 **Step 3: Format Extraction**
 
-javascript
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   // Problem: Full data URL  "data:application/pdf;base64,JVBERi0xLjQK..."  // Solution: Extract pure Base64  const base64 = dataUrl.split(',')[1];  // Result: "JVBERi0xLjQK..."   `
+javascript // Problem: Full data URL  "data:application/pdf;base64,JVBERi0xLjQK..."  // Solution: Extract pure Base64  const base64 = dataUrl.split(',')[1];  // Result: "JVBERi0xLjQK..."   `
 
 ### AI Integration
 
 #### Request Structure (Multimodal)
 
 javascript
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    model: "gemini-2.5-flash",    contents: [      {        parts: [          {            inlineData: {              mimeType: "application/pdf",              data: pdfBase64            }          },          {            text: jobDescription          }        ]      }    ],    generationConfig: {      responseMimeType: "application/json",      responseSchema: {        type: "object",        properties: {          score: { type: "number" },          missingKeywords: {             type: "array",            items: { type: "string" }          }        }      }    }  }   `
+`   {    model: "gemini-2.5-flash",    contents: [      {        parts: [          {            inlineData: {              mimeType: "application/pdf",              data: pdfBase64            }          },          {            text: jobDescription          }        ]      }    ],    generationConfig: {      responseMimeType: "application/json",      responseSchema: {        type: "object",        properties: {          score: { type: "number" },          missingKeywords: {             type: "array",            items: { type: "string" }          }        }      }    }  }   `
 
 #### Why JSON Schema?
 
@@ -169,8 +158,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 ### Storage Structure
 
 javascript
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    jobs: [{ id, title, description, ... }],    applications: [{       id,       jobId,       candidateName,       score,       missingKeywords,       status,      pdfUrl // Blob URL, not Base64    }]  }   `
+`   {    jobs: [{ id, title, description, ... }],    applications: [{       id,       jobId,       candidateName,       score,       missingKeywords,       status,      pdfUrl // Blob URL, not Base64    }]  }   `
 
 🚀 Advanced Features
 --------------------
@@ -178,8 +166,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 ### File Upload Validation
 
 javascript
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   // Validate file type  if (file.type !== 'application/pdf') {    alert('Please upload a PDF file');    return;  }  // Validate file size (max 10MB)  if (file.size > 10 * 1024 * 1024) {    alert('File size must be less than 10MB');    return;  }   `
+`   // Validate file type  if (file.type !== 'application/pdf') {    alert('Please upload a PDF file');    return;  }  // Validate file size (max 10MB)  if (file.size > 10 * 1024 * 1024) {    alert('File size must be less than 10MB');    return;  }   `
 
 ### Automatic Status Assignment
 
@@ -199,8 +186,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 🔍 Data Flow Diagram
 --------------------
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   [User Uploads PDF]       ↓  [FileReader → Base64]      ↓  [Gemini API Analysis]      ↓  [JSON Response: score + missingKeywords]      ↓  [Auto-screening Logic]      ↓  [LocalStorage Save]      ↓  [HR Dashboard Display]   `
+`   [User Uploads PDF]       ↓  [FileReader → Base64]      ↓  [Gemini API Analysis]      ↓  [JSON Response: score + missingKeywords]      ↓  [Auto-screening Logic]      ↓  [LocalStorage Save]      ↓  [HR Dashboard Display]   `
 
 🐛 Common Issues & Solutions
 ----------------------------
@@ -211,23 +197,21 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 javascript
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   const blobUrl = URL.createObjectURL(file);   `
+`   const blobUrl = URL.createObjectURL(file);   `
 
 ### 2\. API Returns Text Instead of JSON
 
 **Cause:** responseSchema not properly configured**Fix:** Verify responseMimeType: "application/json" is set
 
 javascript
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   generationConfig: {    responseMimeType: "application/json",    responseSchema: { ... }  }   `
+`   generationConfig: {    responseMimeType: "application/json",    responseSchema: { ... }  }   `
 
 ### 3\. Base64 String Invalid
 
 **Cause:** Data URL prefix not removed**Fix:** Apply .split(',')\[1\] to extract pure Base64
 
 javascript
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   const base64 = dataUrl.split(',')[1]; // Remove "data:application/pdf;base64,"   `
+`   const base64 = dataUrl.split(',')[1]; // Remove "data:application/pdf;base64,"   `
 
 ### 4\. LocalStorage Quota Exceeded
 
@@ -257,15 +241,13 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 -----------------------
 
 bash
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # Clone the repository  git clone   # Install dependencies  npm install  # Add your Gemini API key  # Create .env file and add:  VITE_GEMINI_API_KEY=your_api_key_here  # Start development server  npm run dev   `
+`   # Clone the repository  git clone   # Install dependencies  npm install  # Add your Gemini API key  # Create .env file and add:  VITE_GEMINI_API_KEY=your_api_key_here  # Start development server  npm run dev   `
 
 🔑 Environment Variables
 ------------------------
 
 env
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   VITE_GEMINI_API_KEY=your_gemini_api_key   `
+`   VITE_GEMINI_API_KEY=your_gemini_api_key   `
 
 📄 License
 ----------
